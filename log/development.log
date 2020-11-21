@@ -1,0 +1,389 @@
+  [1m[35m (661.5ms)[0m  [1m[35mCREATE DATABASE "twitter_app_api_development" ENCODING = 'unicode'[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (47.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(516447404545376850)[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ config/boot.rb:4:in `load'
+Migrating to CreateTweets (20201121225958)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" bigserial primary key, "title" character varying, "content" text, "author" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mActiveRecord::SchemaMigration Create (6.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201121225958"]]
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mActiveRecord::InternalMetadata Create (3.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-21 23:01:39.048247"], ["updated_at", "2020-11-21 23:01:39.048247"]]
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(516447404545376850)[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTweet Create (2.7ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Just found this"], ["content", "the square of the hypotenuse is equal to the sum of the squares of the other two sides"], ["author", "Pythagoras570"], ["created_at", "2020-11-21 23:03:42.471842"], ["updated_at", "2020-11-21 23:03:42.471842"]]
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I'm walkin' here"], ["content", "Hey, I'm walkin' here!"], ["author", "Nicky62"], ["created_at", "2020-11-21 23:03:42.480093"], ["updated_at", "2020-11-21 23:03:42.480093"]]
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ config/boot.rb:4:in `load'
+  [1m[36mTweet Load (2.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-11-21 15:06:49 -0800
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/JKLOL/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/JKLOL/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.1.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 14.5ms | Allocations: 353)
+Completed 200 OK in 63ms (Views: 37.9ms | ActiveRecord: 0.0ms | Allocations: 2767)
+
+
+Started GET "/tweets" for ::1 at 2020-11-21 15:06:57 -0800
+Processing by TweetsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 59)
+
+
+Started GET "/tweets" for ::1 at 2020-11-21 15:07:03 -0800
+Processing by TweetsController#index as HTML
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 30)
+
+
+Started GET "/tweet" for ::1 at 2020-11-21 15:07:07 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/tweet"):
+  
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/tweets" for ::1 at 2020-11-21 15:16:15 -0800
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TweetsController#index as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweet"=>{}}
+  [1m[36mTweet Load (1.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:4:in `index'
+Completed 200 OK in 105ms (Views: 16.8ms | ActiveRecord: 15.5ms | Allocations: 6192)
+
+
+Started POST "/tweets?tweet[title]=Make%20America%20great%20again!&tweet[author]=Donald%20Trump&tweet[content]=I%20will%20make%20this%20the%20best.%20country.ever!" for ::1 at 2020-11-21 15:17:51 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweet"=>{"title"=>"Make America great again!", "author"=>"Donald Trump", "content"=>"I will make this the best. country.ever!"}}
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.0ms | Allocations: 2133)
+
+
+  
+NameError (undefined local variable or method `tweet' for #<TweetsController:0x00000000006860>
+Did you mean?  tweet_url):
+  
+app/controllers/tweets_controller.rb:15:in `create'
+Started POST "/tweets?tweets[title]=Make%20America%20great%20again!&tweets[author]=Donald%20Trump&tweets[content]=I%20will%20make%20this%20the%20best.%20country.ever!" for ::1 at 2020-11-21 15:18:24 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweets"=>{"title"=>"Make America great again!", "author"=>"Donald Trump", "content"=>"I will make this the best. country.ever!"}, "tweet"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 138)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: tweet
+Did you mean?  tweet
+               tweets
+               word
+               action):
+  
+app/controllers/tweets_controller.rb:38:in `tweet_params'
+app/controllers/tweets_controller.rb:13:in `create'
+Started POST "/tweets?tweets[title]=%22Make%20America%20great%20again!%22&tweets[author]=%22Donald%20Trump%22&tweets[content]=%22I%20will%20make%20this%20the%20best.%20country.ever!%22" for ::1 at 2020-11-21 15:19:07 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweets"=>{"title"=>"\"Make America great again!\"", "author"=>"\"Donald Trump\"", "content"=>"\"I will make this the best. country.ever!\""}, "tweet"=>{}}
+Completed 400 Bad Request in 18ms (ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: tweet
+Did you mean?  tweet
+               tweets
+               word
+               action):
+  
+app/controllers/tweets_controller.rb:38:in `tweet_params'
+app/controllers/tweets_controller.rb:13:in `create'
+Started GET "/tweet" for ::1 at 2020-11-21 15:19:21 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/tweet"):
+  
+Started GET "/tweets" for ::1 at 2020-11-21 15:19:24 -0800
+Processing by TweetsController#index as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweet"=>{}}
+  [1m[36mTweet Load (5.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:4:in `index'
+Completed 200 OK in 102ms (Views: 87.6ms | ActiveRecord: 5.6ms | Allocations: 848)
+
+
+Started GET "/tweets/2" for ::1 at 2020-11-21 15:19:29 -0800
+Processing by TweetsController#show as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "id"=>"2", "tweet"=>{}}
+  [1m[36mTweet Load (1.6ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 41ms (Views: 1.6ms | ActiveRecord: 2.3ms | Allocations: 1158)
+
+
+Started POST "/tweets/?tweets[id]=3" for ::1 at 2020-11-21 15:20:07 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"word"=>"soooooo difficult jwt", "tweets"=>{"id"=>"3"}, "tweet"=>{}}
+Completed 400 Bad Request in 11ms (ActiveRecord: 0.0ms | Allocations: 139)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: tweet
+Did you mean?  tweet
+               tweets
+               word
+               action):
+  
+app/controllers/tweets_controller.rb:38:in `tweet_params'
+app/controllers/tweets_controller.rb:13:in `create'
+Started POST "/?tweets[id]=3" for ::1 at 2020-11-21 15:20:21 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/?tweets[title]=%22hello%20world%22" for ::1 at 2020-11-21 15:21:00 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/?tweets[title]=%22hello%20world%22" for ::1 at 2020-11-21 15:21:40 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    id: "3"
+}
+Started POST "/?tweets[title]=%22hello%20world%22" for ::1 at 2020-11-21 15:21:51 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/?tweets[title]=hello%20world" for ::1 at 2020-11-21 15:22:27 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/?title=hello%20world" for ::1 at 2020-11-21 15:22:37 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/"):
+  
+Started POST "/tweets?title=%22hello%22" for ::1 at 2020-11-21 15:22:51 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "title"=>"\"hello\"", "tweet"=>{"id"=>"3"}}
+[31mUnpermitted parameter: :id[0m
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 2090)
+
+
+  
+NameError (undefined local variable or method `tweet' for #<TweetsController:0x00000000006e78>
+Did you mean?  tweet_url):
+  
+app/controllers/tweets_controller.rb:15:in `create'
+Started POST "/tweets?tweet[title]=%22hello%22" for ::1 at 2020-11-21 15:23:06 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "tweet"=>{"title"=>"\"hello\""}}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 2075)
+
+
+  
+NameError (undefined local variable or method `tweet' for #<TweetsController:0x00000000006ef0>
+Did you mean?  tweet_url):
+  
+app/controllers/tweets_controller.rb:15:in `create'
+Started POST "/tweets" for ::1 at 2020-11-21 15:23:12 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "tweet"=>{"id"=>"3"}}
+[31mUnpermitted parameter: :id[0m
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.0ms | Allocations: 2092)
+
+
+  
+NameError (undefined local variable or method `tweet' for #<TweetsController:0x00000000006fb8>
+Did you mean?  tweet_url):
+  
+app/controllers/tweets_controller.rb:15:in `create'
+Started GET "/tweets" for ::1 at 2020-11-21 15:23:16 -0800
+Processing by TweetsController#index as */*
+  Parameters: {"id"=>"3", "tweet"=>{"id"=>"3"}}
+  [1m[36mTweet Load (6.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:4:in `index'
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 6.8ms | Allocations: 827)
+
+
+Started GET "/tweets/1" for ::1 at 2020-11-21 15:23:19 -0800
+Processing by TweetsController#show as */*
+  Parameters: {"id"=>"1", "tweet"=>{"id"=>"1"}}
+  [1m[36mTweet Load (1.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:9:in `show'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.4ms | Allocations: 598)
+
+
+Started POST "/tweets/1" for ::1 at 2020-11-21 15:24:36 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/tweets/1"):
+  
+Started PUT "/tweets/1" for ::1 at 2020-11-21 15:24:42 -0800
+Processing by TweetsController#update as */*
+  Parameters: {"id"=>"1", "tweet"=>{"id"=>"1"}}
+  [1m[36mTweet Load (1.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:43:in `get_tweet'
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" WHERE "tweets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tweets_controller.rb:25:in `update'
+[31mUnpermitted parameter: :id[0m
+Completed 200 OK in 49ms (Views: 1.7ms | ActiveRecord: 20.7ms | Allocations: 3591)
+
+
+Started POST "/tweets/" for ::1 at 2020-11-21 15:25:45 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "tweet"=>{"id"=>"3"}}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 5.2ms | Allocations: 2057)
+
+
+  
+NameError (undefined local variable or method `tweet_params' for #<TweetsController:0x00000000008c00>
+Did you mean?  tweet_path):
+  
+app/controllers/tweets_controller.rb:14:in `create'
+Started PUT "/tweet" for ::1 at 2020-11-21 15:25:59 -0800
+  
+ActionController::RoutingError (No route matches [PUT] "/tweet"):
+  
+Started POST "/tweet" for ::1 at 2020-11-21 15:26:05 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/tweet"):
+  
+Started POST "/tweet" for ::1 at 2020-11-21 15:27:23 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/tweet"):
+  
+Started POST "/tweets" for ::1 at 2020-11-21 15:27:27 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "tweet"=>{"id"=>"3"}}
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (4.7ms)[0m  [1m[32mINSERT INTO "tweets" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2020-11-21 23:27:27.418800"], ["updated_at", "2020-11-21 23:27:27.418800"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 86ms (Views: 1.0ms | ActiveRecord: 24.7ms | Allocations: 4057)
+
+
+Started POST "/tweets" for ::1 at 2020-11-21 15:28:13 -0800
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "id": "3",
+    "title": "Make America Great Again!",
+    "content": "I will make this the best country ever",
+    "author": "Donald Trump",
+}
+  
+ActionDispatch::Http::Parameters::ParseError (783: unexpected token at '{
+    "id": "3",
+    "title": "Make America Great Again!",
+    "content": "I will make this the best country ever",
+    "author": "Donald Trump",
+}'):
+  
+actionpack (6.1.0.rc1) lib/action_dispatch/http/parameters.rb:96:in `rescue in parse_formatted_parameters'
+actionpack (6.1.0.rc1) lib/action_dispatch/http/parameters.rb:92:in `parse_formatted_parameters'
+actionpack (6.1.0.rc1) lib/action_dispatch/http/request.rb:399:in `block in POST'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch'
+rack (2.2.3) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.1.0.rc1) lib/action_dispatch/http/request.rb:398:in `POST'
+actionpack (6.1.0.rc1) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.1.0.rc1) lib/action_controller/metal/params_wrapper.rb:284:in `_wrapper_enabled?'
+actionpack (6.1.0.rc1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (6.1.0.rc1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.0.rc1) lib/abstract_controller/base.rb:165:in `process'
+actionpack (6.1.0.rc1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.0.rc1) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.0.rc1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.0.rc1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.0.rc1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.0.rc1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.0.rc1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.0.rc1) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.1.0.rc1) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.0.rc1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.0.rc1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.0.rc1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.0.rc1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.0.rc1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.0.rc1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.0.rc1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.0.rc1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.0.rc1) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+railties (6.1.0.rc1) lib/rails/engine.rb:535:in `call'
+puma (5.0.4) lib/puma/configuration.rb:239:in `call'
+puma (5.0.4) lib/puma/request.rb:76:in `block in handle_request'
+puma (5.0.4) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
+puma (5.0.4) lib/puma/request.rb:75:in `handle_request'
+puma (5.0.4) lib/puma/server.rb:430:in `process_client'
+puma (5.0.4) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "id": "3",
+    "title": "Make America Great Again!",
+    "content": "I will make this the best country ever",
+    "author": "Donald Trump",
+}
+Started POST "/tweets" for ::1 at 2020-11-21 15:28:17 -0800
+Processing by TweetsController#create as */*
+  Parameters: {"id"=>"3", "title"=>"Make America Great Again!", "content"=>"I will make this the best country ever", "author"=>"Donald Trump", "tweet"=>{"id"=>"3", "title"=>"Make America Great Again!", "content"=>"I will make this the best country ever", "author"=>"Donald Trump"}}
+[31mUnpermitted parameter: :id[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("title", "content", "author", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Make America Great Again!"], ["content", "I will make this the best country ever"], ["author", "Donald Trump"], ["created_at", "2020-11-21 23:28:18.033908"], ["updated_at", "2020-11-21 23:28:18.033908"]]
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:16:in `create'
+Completed 201 Created in 105ms (Views: 0.6ms | ActiveRecord: 3.2ms | Allocations: 1807)
+
+
+Started GET "/tweets" for ::1 at 2020-11-21 15:28:46 -0800
+Processing by TweetsController#index as */*
+  [1m[36mTweet Load (2.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/controllers/tweets_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 2.8ms | Allocations: 1039)
+
+
+Started DELETE "/tweets" for ::1 at 2020-11-21 15:29:07 -0800
+  
+ActionController::RoutingError (No route matches [DELETE] "/tweets"):
+  
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
